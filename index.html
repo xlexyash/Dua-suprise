@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#100b1c">
+  <meta name="description" content="A little cinematic birthday surprise for Dua.">
+  <title>For Dua ✦ 15 November</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="effects" aria-hidden="true"></canvas>
+  <div class="ambient" aria-hidden="true"><i></i><i></i><i></i></div>
+  <button class="music-toggle" id="musicToggle" aria-label="Turn music on or off" title="Music on/off">♫ <span>Music off</span></button>
+  <audio id="bgMusic" src="assets/noizy.mp3" preload="metadata" loop></audio>
+
+  <main>
+    <section class="scene active intro" id="scene1" aria-labelledby="introTitle">
+      <div class="eyebrow"><span class="tiny-star">✦</span> A LITTLE MOMENT JUST FOR YOU <span class="tiny-star">✦</span></div>
+      <div class="moon-glow"></div>
+      <p class="intro-line">Some days are more than<br>just ordinary days...</p>
+      <h1 id="introTitle" class="intro-title">A little surprise<br><em>has been waiting for you.</em></h1>
+      <button class="gold-button" id="openSurprise">OPEN YOUR SURPRISE <span>✧</span></button>
+      <p class="small-note">Best experienced with sound ♡</p>
+    </section>
+
+    <section class="scene name-scene" id="scene2" aria-labelledby="duaName">
+      <p class="eyebrow">TONIGHT, THE STARS HAVE ONE NAME</p>
+      <p class="reveal-pre">Today, the spotlight belongs to...</p>
+      <h2 id="duaName" class="name-reveal" aria-label="Dua"><span>D</span><span>U</span><span>A</span></h2>
+      <div class="date-rule"><span></span> 15 NOVEMBER <span></span></div>
+      <p class="scene-copy">The world got a little brighter on this day.<br>And today, we celebrate you.</p>
+      <button class="gold-button next-scene">LET THE MAGIC BEGIN <span>→</span></button>
+    </section>
+
+    <section class="scene memories" id="scene3" aria-labelledby="memoryTitle">
+      <p class="eyebrow">LITTLE MOMENTS, FOREVER TREASURED</p>
+      <h2 class="section-title" id="memoryTitle">A moment <em>worth keeping.</em></h2>
+      <p class="scene-copy">A few little glimpses, captured in time.</p>
+      <button class="featured-photo photo-open" data-photo="0" aria-label="Open featured mirror selfie">
+        <img src="assets/dua-main.jpg" alt="Dua's mirror selfie" loading="eager">
+        <span class="photo-caption">THE MAIN CHARACTER ✦</span>
+        <span class="photo-expand">↗</span>
+      </button>
+      <div class="photo-grid">
+        <button class="photo-card photo-open" data-photo="1" aria-label="Open eye portrait one"><img src="assets/dua-detail-1.jpg" alt="Close-up portrait of Dua's eyes" loading="lazy"><span>01</span></button>
+        <button class="photo-card photo-open" data-photo="2" aria-label="Open eye portrait two"><img src="assets/dua-detail-2.jpg" alt="Close-up portrait detail" loading="lazy"><span>02</span></button>
+        <button class="photo-card photo-open" data-photo="3" aria-label="Open eye portrait three"><img src="assets/dua-detail-3.jpg" alt="Close-up portrait detail" loading="lazy"><span>03</span></button>
+      </div>
+      <button class="gold-button next-scene">NEXT CHAPTER <span>→</span></button>
+    </section>
+
+    <section class="scene party" id="scene4" aria-labelledby="partyTitle">
+      <p class="eyebrow">A LITTLE BIRTHDAY MAGIC</p>
+      <h2 class="section-title" id="partyTitle">Let’s <em>celebrate you.</em></h2>
+      <p class="scene-copy">Tap, pop, open, and make a wish. This little party is yours.</p>
+
+      <div class="party-grid">
+        <article class="party-card cake-card">
+          <h3>A slice of happiness</h3>
+          <p class="hint" id="cakeHint">Tap the cake to cut it!</p>
+          <button class="cake-button" id="cakeButton" aria-label="Tap the birthday cake to cut it">
+            <span class="cake-plate"></span>
+            <span class="cake">
+              <span class="candle-row"><i class="candle"><b></b></i><i class="candle"><b></b></i><i class="candle"><b></b></i><i class="candle"><b></b></i></span>
+              <span class="cake-top"><i class="berry b1"></i><i class="berry b2"></i><i class="berry b3"></i></span>
+              <span class="cake-layer top-layer"></span><span class="cream-band"></span><span class="cake-layer bottom-layer"></span>
+              <span class="cake-split"></span>
+            </span>
+          </button>
+          <p class="tiny-copy" id="cakeResult">A sweet day for the sweetest soul.</p>
+        </article>
+
+        <article class="party-card balloons-card">
+          <h3>Make some wishes</h3>
+          <p class="hint">Pop the balloons and make some wishes!</p>
+          <div class="balloon-field" id="balloonField">
+            <button class="balloon pink" aria-label="Pop pink balloon"><i></i></button>
+            <button class="balloon purple" aria-label="Pop purple balloon"><i></i></button>
+            <button class="balloon gold" aria-label="Pop gold balloon"><i></i></button>
+            <button class="balloon blue" aria-label="Pop blue balloon"><i></i></button>
+            <button class="balloon rose" aria-label="Pop rose balloon"><i></i></button>
+          </div>
+          <p class="tiny-copy" id="balloonCount">5 wishes floating in the air</p>
+        </article>
+
+        <article class="party-card gift-card">
+          <h3>A little something</h3>
+          <p class="hint">There’s a message inside...</p>
+          <button class="gift-button" id="giftButton" aria-label="Open the birthday gift">
+            <span class="gift-lid"><i></i></span><span class="gift-box"><i></i></span><span class="gift-bow">✧</span>
+          </button>
+          <p class="tiny-copy" id="giftMessage" aria-live="polite">Tap to unwrap your surprise ♡</p>
+        </article>
+
+        <article class="party-card wish-card">
+          <h3>Make a wish</h3>
+          <p class="hint">Make a wish and blow the candles!</p>
+          <div class="wish-candles"><i><b></b></i><i><b></b></i><i><b></b></i></div>
+          <button class="soft-button" id="blowButton">✧ Blow the candles</button>
+          <p class="tiny-copy" id="wishResult">Tap when your wish is ready.</p>
+        </article>
+      </div>
+
+      <article class="letter-card">
+        <div class="letter-heading"><span>✦ A LETTER FOR YOU ✦</span><h3>Some words from the heart</h3></div>
+        <button class="envelope" id="letterButton" aria-label="Open your birthday letter">
+          <span class="env-back"></span><span class="letter-paper"><span>Dear Dua,</span><small>A little note, just for you...</small></span><span class="env-front"></span><span class="env-flap"></span><span class="seal">♡</span>
+        </button>
+        <p class="hint" id="letterHint">Tap the envelope to open your letter.</p>
+        <div class="letter-full" id="letterFull" aria-live="polite">
+          <p class="script">Dear Dua,</p>
+          <p>May your life always be filled with happiness, beautiful memories, endless laughter and countless reasons to smile.</p>
+          <p>May this new year of your life bring you everything your heart wishes for.</p>
+          <p>Keep shining. You deserve beautiful things.</p>
+          <p class="script">Happy Birthday, Dua. ♡</p>
+        </div>
+      </article>
+      <button class="gold-button next-scene finale-link">TO YOUR BIG MOMENT <span>✦</span></button>
+    </section>
+
+    <section class="scene finale" id="scene5" aria-labelledby="finalTitle">
+      <div class="final-sparkle">✦</div>
+      <p class="eyebrow">A WISH WRITTEN IN THE STARS</p>
+      <h2 id="finalTitle" class="final-title">HAPPY<br><em>BIRTHDAY</em></h2>
+      <div class="final-name">DUA</div>
+      <p class="final-message">May this year bring you beautiful surprises, peace in your heart, laughter in your days, and memories you'll always want to revisit.</p>
+      <p class="keep-shining">Keep shining, Dua. ♡</p>
+      <div class="final-date">15 <span>·</span> 11</div>
+      <button class="gold-button wish-final" id="finalWish">MAKE A WISH <span>✨</span></button>
+      <button class="replay-button" id="replayButton">↺ Experience it again</button>
+    </section>
+  </main>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close photo">×</button>
+    <button class="lightbox-arrow prev" id="photoPrev" aria-label="Previous photo">‹</button>
+    <img id="lightboxImage" src="" alt="Selected memory">
+    <button class="lightbox-arrow next" id="photoNext" aria-label="Next photo">›</button>
+    <p>A moment worth keeping. ♡</p>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
